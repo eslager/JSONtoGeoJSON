@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Test</title>
+<script type="text/javascript" src="	https://unpkg.com/jquery@3.6.0/dist/jquery.js"></script>
+<script type="text/javascript" src="	https://unpkg.com/geojson@0.5.0/geojson.js"></script>
+</head>
+<body>
+		<script>
+$.getJSON("https://data.lime.bike/api/partners/v1/gbfs/seattle/free_bike_status.json", function(jsonData) {
+
+const json = jsonData;
+
+const data = GeoJSON.parse(json, {
+  Point: ['latitude', 'longitude'],
+  include: ['name', 'icon', 'addressFormatted']
+});
+console.log(json)
+});
+		</script>
+	</body>
+	</html>
